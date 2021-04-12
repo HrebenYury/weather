@@ -1,0 +1,85 @@
+@import "_modalCard";
+@import "_currentWeather";
+@import "_searchLine";
+@import "_sevenDaysCard";
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0 15px;
+  position: relative;
+  &:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(images/gora-fudziyama.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px;
+  }
+}
+
+$blockColor: rgba(255, 255, 255, 0.3);
+$fontForText: hsl(166, 81%, 96%);
+$fontFamily: "Montserrat", sans-serif;
+
+%toShowAnimation {
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  top: 20px;
+  animation: ResultFadeIn 0.5s 1.4s forwards;
+
+  @keyframes ResultFadeIn {
+    to {
+      opacity: 1;
+      visibility: visible;
+      top: 0;
+    }
+  }
+}
+
+.weatherResult {
+@extend %toShowAnimation;
+}
+
+.errorBox {
+  @extend %font-color;
+  @extend %toShowAnimation;
+  background-color: $blockColor;
+  max-width: 600px;
+  text-align: center;
+  font-size: 30px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.loading{
+  @extend %font-color;
+  background-image: url(images/jerry.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  margin: auto;
+  padding: 20px;
+}

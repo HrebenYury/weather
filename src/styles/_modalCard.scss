@@ -1,0 +1,171 @@
+.Modal {
+  color: hsl(166, 81%, 96%);
+  outline: 0 !important;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  right: 20%;
+  bottom: 10%;
+  background-color: papayawhip;
+  border-radius: 7px;
+  text-align: center;
+  background-color: rgba(213, 193, 250, 0.575);
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  @media (max-width: 768px) {
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+  }
+  @media (max-width: 1024px) {
+    left: 8%;
+    right: 8%;
+  }
+
+  @media (max-width: 1224px) {
+    left: 10%;
+    right: 10%;
+  }
+}
+
+.Overlay {
+  outline: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.open-modal-button {
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  margin-top: 7px;
+  border-radius: 45px;
+  padding: 12px 45px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.open-modal-button:hover {
+  background: #2ee59d;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, 0.4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.close-modal-button {
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 45px;
+  padding: 12px 45px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-modal-button:hover {
+  background: #e5622e;
+  box-shadow: 0 15px 20px rgba(229, 83, 46, 0.4);
+  color: white;
+}
+
+@mixin setGrid($col, $row) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+}
+
+.modal-small-label {
+  font-size: 30px;
+  margin: 10px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.modal-middle-label {
+  @include setGrid(repeat(auto-fit, minmax(170px, 1fr)), repeat(auto-fit, 1fr));
+  div {
+    font-size: 17px;
+    padding: 10px;
+    margin: auto;
+  }
+  @media (max-width: 768px) {
+    @include setGrid(repeat(2, minmax(100px, 1fr)),repeat(4, 1fr));
+    div {
+      font-size: 12px;
+    }
+  }  
+}
+
+.modal-big-label {
+  margin: 20px;
+  text-align: center;
+  font-size: 70px;
+  h3 {
+    margin: auto;
+    font-size: 24px;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .modal-humidity {
+    margin: auto;
+    font-size: 25px;
+  }
+  @include setGrid(repeat(auto-fit, minmax(190px, 1fr)), repeat(auto-fit, 1fr));
+  @media (max-width: 768px) {
+    @include setGrid(
+      repeat(auto-fit, minmax(80px, 1fr)),
+      repeat(auto-fit, 1fr)
+    );
+    font-size: 35px;
+    h3 {
+      font-size: 13px;
+    }
+    .modal-humidity {
+      margin: auto;
+      font-size: 15px;
+    }
+  }
+}

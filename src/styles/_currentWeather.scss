@@ -1,0 +1,100 @@
+$blockColor: rgba(255, 255, 255, 0.3);
+$fontForText: hsl(166, 81%, 96%);
+$fontFamily: "Montserrat", sans-serif;
+
+%font-color {
+  font-family: $fontFamily;
+  color: $fontForText;
+}
+
+@mixin setGrid($col, $row) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+}
+
+.forecastCurrentDay {
+  @extend %font-color;
+  
+  @include setGrid(repeat(auto-fit, minmax(290px, 1fr)), repeat(auto-fit, 1fr));
+}
+
+.weather-general-info {
+  text-align: center;
+    
+  .general-icon{
+    margin: auto;
+    font-size: 100px;
+    h4{
+      font-size: 20px;
+      &:first-letter{
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .general-temp{
+    margin: auto;
+    
+    h3{
+       margin-top: 16px;
+      font-size: 70px;
+    }
+    h4{
+      margin-top: 16px;
+      font-size: 20px;
+    }
+  }
+  @include setGrid(repeat(auto-fit, minmax(190px,1fr)), repeat(auto-fit, 1fr));
+}
+
+.weather-details-info {
+  border-radius: 7px;
+  text-align: center;
+  background-color: $blockColor;
+  margin: 10px;
+  padding: 5px;
+  
+  div{
+    margin:30px;
+  }
+  h4{
+    
+    margin: 6px;
+  }
+  span{
+    
+    @media (max-width:768px) {
+      font-size: 7px;
+    }
+    @media (max-width:1024px) {
+      font-size: 17px;
+    } 
+    @media (max-width:1440px) {
+      font-size:  19px;
+    }
+  }
+
+  @media (max-width:768px) {
+    @include setGrid(repeat(2, minmax(90px, 1fr)), repeat(3, 1fr));
+    div{
+      margin:20px;
+    }
+  }
+  @include setGrid(repeat(3, minmax(90px, 1fr)), repeat(auto-fit, 1fr));
+}
+
+
+
+.place-date-label{
+  @extend %font-color;
+  margin: 10px;
+  padding: 5px;  
+  h1{
+    margin-bottom: 12px;
+    font-size: 40px;
+  }
+  h3{
+    font-size: 20px;
+  } 
+}

@@ -1,0 +1,35 @@
+$blockColor: rgba(255, 255, 255, 0.3);
+
+@mixin setGrid($col, $row) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+}
+
+.forecastSevenDays {
+  @extend %font-color;
+  div {
+    border-radius: 7px;
+    text-align: center;
+    background-color: $blockColor;
+    margin: 10px;
+    padding: 5px;
+  }
+  @include setGrid(repeat(auto-fit, minmax(180px, 1fr)), repeat(auto-fit, 1fr));
+}
+
+.card {
+  .iconCard {
+    font-size: 40px;
+    margin: 20px;
+  }
+}
+
+.tempCard {
+  font-size: 20px;
+  margin: 15px;
+}
+
+.dateCard {
+  margin: 15px;
+}
